@@ -48,5 +48,8 @@ This is a template for a FastAPI backend and a React frontend, configured for de
     ```
 3.  Push to deploy:
     ```bash
+    # if needed 
+    eval "$(ssh-agent -s)" && ssh-add {PATH-TO-SSH-FILE}
+
     git push dokku main
     ```
