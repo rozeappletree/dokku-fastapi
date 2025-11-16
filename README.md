@@ -8,7 +8,7 @@ This is a template for a FastAPI backend and a React frontend, configured for de
 Before deploying (your commit with gh actions), make sure you 
 
 - Change the host and ssh key values in gh secrets
-- Change the app name
+- Change the app name IN GH secrets (put it in vars section and edit deploy.yml file if you want to)
 - Install dokku in the server and set it up [(see here)](https://dokku.com/docs/getting-started/installation/).
     
     ```bash
