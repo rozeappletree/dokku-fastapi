@@ -19,3 +19,13 @@ jobs:
         with:
           git_remote_url: ssh://dokku@${{ secrets.DOKKU_HOST }}:22/${{ secrets.DOKKU_APP_NAME }}
           ssh_private_key: ${{ secrets.DOKKU_SSH_PRIVATE_KEY }}
+
+      - name: Enable Letsencrypt
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DOKKU_HOST }}
+          username: dokku
+          key: ${{ secrets.DOKKU_SSH_PRIVATE_KEY }}
+          script: |
+            dokku letsencrypt:enable ${{ secrets.DOKKU_APP_NAME }}
+            dokku letsencrypt:cron-job --add
