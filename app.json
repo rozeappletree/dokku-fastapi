@@ -5,10 +5,5 @@
     "dokku",
     "fastapi",
     "react"
-  ],
-  "scripts": {
-    "dokku": {
-      "postdeploy": "npm --prefix frontend install && npm run build --prefix frontend"
-    }
-  }
+  ]
 }

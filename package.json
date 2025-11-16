@@ -1,0 +1,8 @@
+{
+  "name": "dokku-fastapi-react-monorepo",
+  "description": "A FastAPI and React app for Dokku.",
+  "scripts": {
+    "heroku-postbuild": "npm install --prefix frontend && npm run build --prefix frontend"
+  },
+  "cacheDirectories": ["frontend/node_modules"]
+}
