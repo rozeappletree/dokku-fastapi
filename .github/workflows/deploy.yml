@@ -28,3 +28,4 @@ jobs:
           key: ${{ secrets.DOKKU_SSH_PRIVATE_KEY }}
           script: |
             letsencrypt:enable ${{ secrets.DOKKU_APP_NAME }}
+            letsencrypt:cron-job --add
