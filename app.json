@@ -1,0 +1,14 @@
+{
+  "name": "dokku-fastapi-react",
+  "description": "A FastAPI and React app for Dokku.",
+  "keywords": [
+    "dokku",
+    "fastapi",
+    "react"
+  ],
+  "scripts": {
+    "dokku": {
+      "postdeploy": "npm --prefix frontend install && npm run build --prefix frontend"
+    }
+  }
+}
