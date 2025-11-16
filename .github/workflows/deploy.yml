@@ -21,7 +21,7 @@ jobs:
           ssh_private_key: ${{ secrets.DOKKU_SSH_PRIVATE_KEY }}
 
       - name: Enable Letsencrypt
-        uses: dokku/github-action-ssh-command@v1
+        uses: dokku/ssh-command-action@v1
         with:
           host: ${{ secrets.DOKKU_HOST }}
           private_key: ${{ secrets.DOKKU_SSH_PRIVATE_KEY }}
