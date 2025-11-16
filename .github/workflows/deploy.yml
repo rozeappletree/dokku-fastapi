@@ -27,4 +27,4 @@ jobs:
           username: dokku
           key: ${{ secrets.DOKKU_SSH_PRIVATE_KEY }}
           script: |
-            dokku letsencrypt:enable ${{ secrets.DOKKU_APP_NAME }}
+            letsencrypt:enable ${{ secrets.DOKKU_APP_NAME }}
