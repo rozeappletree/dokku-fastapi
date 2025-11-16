@@ -22,7 +22,7 @@ jobs:
 
       - name: SSL 
         run: |
-          if ssh dokku@${{ secrets.DOKKU_SERVER_HOST }} apps:exists $APP_NAME; then
-            ssh dokku@${{ secrets.DOKKU_SERVER_HOST }} letsencrypt:enable $APP_NAME
+          if ssh dokku@${{ secrets.DOKKU_HOST }} apps:exists $APP_NAME; then
+            ssh dokku@${{ secrets.DOKKU_HOST }} letsencrypt:enable $APP_NAME
           fi
         shell: bash
