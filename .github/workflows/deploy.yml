@@ -20,11 +20,9 @@ jobs:
           git_remote_url: ssh://dokku@${{ secrets.DOKKU_HOST }}:22/${{ secrets.DOKKU_APP_NAME }}
           ssh_private_key: ${{ secrets.DOKKU_SSH_PRIVATE_KEY }}
 
-      - name: Enable Letsencrypt
-        uses: dokku/ssh-command-action@v1
-        with:
-          host: ${{ secrets.DOKKU_HOST }}
-          private_key: ${{ secrets.DOKKU_SSH_PRIVATE_KEY }}
-          command: |
-            dokku letsencrypt:enable ${{ secrets.DOKKU_APP_NAME }}
-            dokku letsencrypt:cron-job --add
+    - name: SSL 
+      run: |
+        if ssh dokku@${{ secrets.DOKKU_SERVER_HOST }} apps:exists $APP_NAME; then
+          ssh dokku@${{ secrets.DOKKU_SERVER_HOST }} letsencrypt:enable $APP_NAME
+        fi
+      shell: bash
