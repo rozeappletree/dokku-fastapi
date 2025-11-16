@@ -19,10 +19,3 @@ jobs:
         with:
           git_remote_url: ssh://dokku@${{ secrets.DOKKU_HOST }}:22/${{ secrets.DOKKU_APP_NAME }}
           ssh_private_key: ${{ secrets.DOKKU_SSH_PRIVATE_KEY }}
-
-      - name: SSL 
-        run: |
-          if ssh dokku@${{ secrets.DOKKU_HOST }} apps:exists ${{ secrets.DOKKU_APP_NAME }}; then
-            ssh dokku@${{ secrets.DOKKU_HOST }} letsencrypt:enable ${{ secrets.DOKKU_APP_NAME }}
-          fi
-        shell: bash
