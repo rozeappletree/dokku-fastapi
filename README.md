@@ -40,7 +40,7 @@ This is a template for a FastAPI backend and a React frontend, configured for de
 
 1.  Create a Dokku app:
     ```bash
-    ssh dokku@{HOST-SERVER-IP-OR-DOMAIN} -i {PATH-TO-SSH-FILE} apps:create my-app
+    ssh dokku@{HOST-SERVER-IP-OR-DOMAIN} -i {PATH-TO-SERVER-SSH-FILE} apps:create my-app
     ```
 2.  Add a remote for your Dokku server:
     ```bash
@@ -48,8 +48,6 @@ This is a template for a FastAPI backend and a React frontend, configured for de
     ```
 3.  Push to deploy:
     ```bash
-    # if needed 
-    eval "$(ssh-agent -s)" && ssh-add {PATH-TO-SSH-FILE}
-
+    eval "$(ssh-agent -s)" && ssh-add {PATH-TO-SERVER-SSH-FILE}
     git push dokku main
     ```
